@@ -1,6 +1,15 @@
 package com.example.libraryBackend.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class Classification {
+
+    @Id
+    private int id;
     private String title;
     private String imageUrl;
 
@@ -8,7 +17,8 @@ public class Classification {
 
     }
 
-    public Classification(String title, String imageUrl) {
+    public Classification(int id, String title, String imageUrl) {
+        this.id = id;
         this.title = title;
         this.imageUrl = imageUrl;
     }
@@ -28,6 +38,10 @@ public class Classification {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
+
+    public void setId(int id){this.id = id;}
+
+    public int getId() {return id;}
 
     @Override
     public String toString() {
