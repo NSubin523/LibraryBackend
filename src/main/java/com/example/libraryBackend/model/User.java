@@ -1,17 +1,23 @@
 package com.example.libraryBackend.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table
 public class User {
-/*    @Id
+
+    @Id
     @SequenceGenerator(
-            name="product_sequence",
-            sequenceName = "product_sequence",
+            name="user_sequence",
+            sequenceName = "user_sequence",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "product_sequence"
-    )*/
+            generator = "user_sequence"
+    )
     private long userId;
+
     private String firstName;
     private String lastName;
     private String userEmail;

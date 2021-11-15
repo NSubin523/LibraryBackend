@@ -1,4 +1,7 @@
 package com.example.libraryBackend.repository;
 
-public interface UserRepo {
+import com.example.libraryBackend.model.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepo extends JpaRepository<User,Long> {
 }
