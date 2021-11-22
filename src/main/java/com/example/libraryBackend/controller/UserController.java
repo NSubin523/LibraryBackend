@@ -29,4 +29,9 @@ public class UserController {
         userServices.deleteUsers();
     }
 
+    @RequestMapping("/{userId}")
+    public User getSingleUserById(@PathVariable long userId){
+        return userServices.getUserByID(userId);
+    }
+
 }
