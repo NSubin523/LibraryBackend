@@ -1,11 +1,30 @@
 package com.example.libraryBackend.model;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Table
 public class Books {
+
+    @Id
+    @SequenceGenerator(
+            name="book_sequence",
+            sequenceName = "book_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "book_sequence"
+    )
+    private long generatedBookId;
+
     private String id;
     private String title;
+
+    @ElementCollection
     private List<String> authors;
+
     private String publishers;
     private String publishedDate;
     private String description;
@@ -13,10 +32,22 @@ public class Books {
     private String identifier;
     private int pageCount;
     private String printType;
+
+    @ElementCollection
     private List<String> categories;
+
     private double averageRating;
     private String maturityRating;
     private String contentVersion;
+
+    public long getGeneratedBookId() {
+        return generatedBookId;
+    }
+
+    public void setGeneratedBookId(long generatedBookId) {
+        this.generatedBookId = generatedBookId;
+    }
+
     private String thumbnail;
     private String language;
     private String previewLink;
